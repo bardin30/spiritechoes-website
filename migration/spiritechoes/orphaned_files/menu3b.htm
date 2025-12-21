@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<!-- attempting to put the scripting on the td cells -->
+<style type="text/css">
+.menutitle{
+cursor: pointer;
+display: block;
+}
+.submenu{
+cursor: pointer;
+height: 0px;
+}
+.menuimage{
+	height: 0px;
+ 	width: 130px;
+}
+</style>
+<script type="text/javascript">
+
+var ns4=document.layers?1:0
+var ie4=document.all
+var ns6=document.getElementById&&!document.all?1:0
+menuHeight=0
+topboundary=20
+bottomboundary=0
+//---------------------------------------------------------------
+arMenu = new Array();
+
+arMenu[0] = new Array("m0",
+"sm00",
+"sm01"
+);
+
+arMenu[1] = new Array("m1",
+"sm10",
+"sm11",
+"sm12",
+"sm13",
+"sm14",
+"sm15"
+);
+
+//if (document.getElementById){
+//document.write('<style type="text/css">\n')
+//document.write('.submenu{display: none;}\n')
+//document.write('</style>\n')
+//}
+
+//---------------------------------------------------------------
+function expandMenu(mn)
+{
+	if ((ie4||ns6)&&parseInt(menuHeight)<topboundary)
+	menuHeight=parseInt(menuHeight)+1+"px"
+	else if(ns4&&menuHeight<topboundary)
+	menuHeight+=1
+	else if(pullit) {
+		menuHeight=topboundary
+		clearInterval(pullit)
+	}
+	// show the requested menus submenu''s
+	for(var k = 1; k < arMenu[mn].length; k++){
+		document.getElementById(arMenu[mn][k]).style.display = "block";
+		document.getElementById(arMenu[mn][k]).style.height = menuHeight;
+	}
+
+}
+//---------------------------------------------------------------
+function collapseMenu(mn)
+{
+	if ((ie4||ns6)&&parseInt(menuHeight)>bottomboundary)
+	menuHeight=parseInt(menuHeight)-1+"px"
+	else if(ns4&&menuHeight>bottomboundary)
+	menuHeight-=1
+	else {  //if(window.pullit) removed left brace when commenting and added before
+		menuHeight=bottomboundary
+		clearInterval(pullit)
+	}
+	// show the requested menus submenu''s
+	for(var k = 1; k < arMenu[mn].length; k++){
+		document.getElementById(arMenu[mn][k]).style.display = "block";
+		document.getElementById(arMenu[mn][k]).style.height = menuHeight;
+	}
+
+}
+//---------------------------------------------------------------
+function hideMenu(mn)
+{
+  // hide all submenus
+  for(var i = 0; i < arMenu.length; i++)
+  {
+    for(var j = 1; j < arMenu[i].length; j++)
+    {
+      document.getElementById(arMenu[i][j]).style.display = "none";
+    }
+  }
+}
+//---------------------------------------------------------------
+
+function pull(mn){
+	carryOver=mn;
+	if (window.drawit)
+	clearInterval(drawit)
+	pullit=setInterval("expandMenu(carryOver)",10)
+}
+//---------------------------------------------------------------
+function draw(mn){
+	carryOver=mn;
+	if (window.pullit)
+	clearInterval(pullit)
+	drawit=setInterval("collapseMenu(carryOver)",10)
+}
+
+</script>
+</HEAD>
+<BODY onLoad="hideMenu()">
+<table border="0" cellpadding="0" cellspacing="0" width="130">
+  <tr>
+   <td><img src="menubar5_images/spacer.gif" width="130" height="1" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="1" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td><img name="menubar5_r1_c1" src="menubar5_images/menubar5_r1_c1.gif" width="130" height="89" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="89" border="0" alt=""></td>
+  </tr>
+  <tr class="menutitle">
+   <td><img name="Home" src="menubar5_images/Home.gif" width="130" height="30" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="30" border="0" alt=""></td>
+  </tr>
+  <tr class="menutitle" onMouseOver="pull(0)" onMouseOut="draw(0)">
+    <td><img name="menubar5_r3_c1" src="menubar5_images/menubar5_r3_c1.gif" border="0" alt=""></td>
+    <td><img src="menubar5_images/spacer.gif" width="1" height="30" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td class="submenu" id="sm00" onMouseOver="pull(0)" onMouseOut="draw(0)"><img name="menubar5_r4_c1" src="menubar5_images/menubar5_r4_c1.gif" width="130" height="20" border="0" alt=""></td>
+   <td class="submenu" id="sm01" onMouseOver="pull(0)" onMouseOut="draw(0)"><img src="menubar5_images/spacer.gif" width="1" height="20" border="0" alt=""></td>
+  </tr>
+   <tr class="menutitle">
+   <td><img name="menubar5_r10_c1" src="menubar5_images/menubar5_r10_c1.gif" width="130" height="30" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="30" border="0" alt=""></td>
+  </tr>
+  <tr class="menutitle" onMouseOver="pull(1)" onMouseOut="draw(1)">
+   <td><img name="menubar5_r11_c1" src="menubar5_images/menubar5_r11_c1.gif" width="130" height="30" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="30" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td class="submenu" id="sm10" onMouseOver="pull(1)" onMouseOut="draw(1)"><img name="menubar5_r12_c1" src="menubar5_images/menubar5_r12_c1.gif" width="130" height="20" border="0" alt=""></td>
+   <td class="submenu" id="sm11" onMouseOver="pull(1)" onMouseOut="draw(1)"><img src="menubar5_images/spacer.gif" width="1" height="20" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td class="submenu" id="sm12" onMouseOver="pull(1)" onMouseOut="draw(1)"><img name="menubar5_r13_c1" src="menubar5_images/menubar5_r13_c1.gif" width="130" height="20" border="0" alt=""></td>
+   <td class="submenu" id="sm13" onMouseOver="pull(1)" onMouseOut="draw(1)"><img src="menubar5_images/spacer.gif" width="1" height="20" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td class="submenu" id="sm14" onMouseOver="pull(1)" onMouseOut="draw(1)"><img name="menubar5_r14_c1" src="menubar5_images/menubar5_r14_c1.gif" width="130" height="20" border="0" alt=""></td>
+   <td class="submenu" id="sm15" onMouseOver="pull(1)" onMouseOut="draw(1)"><img src="menubar5_images/spacer.gif" width="1" height="20" border="0" alt=""></td>
+  </tr>
+  <tr class="menutitle">
+   <td><img name="menubar5_r15_c1" src="menubar5_images/menubar5_r15_c1.gif" width="130" height="30" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="30" border="0" alt=""></td>
+  </tr>
+  <tr>
+   <td><img name="menubar5_r16_c1" src="menubar5_images/menubar5_r16_c1.gif" width="130" height="91" border="0" alt=""></td>
+   <td><img src="menubar5_images/spacer.gif" width="1" height="91" border="0" alt=""></td>
+  </tr>
+</table>
+</BODY>
+</HTML>
