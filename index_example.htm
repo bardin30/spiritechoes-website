@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spirit Echoes Fine Art Festival</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg: #ffffff;
+            --text: #1a1a1a;
+            --accent: #6b46c1;
+            --light-accent: #f7fafc;
+            --border: #e2e8f0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--bg);
+        }
+
+        .header-wrapper {
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+
+        header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: -0.5px;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        header .subtitle {
+            font-size: 1rem;
+            color: #718096;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            padding: 1rem 0;
+        }
+
+        nav a {
+            display: block;
+            color: var(--text);
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 500;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+        }
+
+        nav a:hover {
+            background: var(--light-accent);
+            color: var(--accent);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            letter-spacing: -0.5px;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .hero .event-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .hero .location {
+            font-size: 1.1rem;
+            color: #4a5568;
+            margin-bottom: 0.5rem;
+        }
+
+        .date-box {
+            display: inline-block;
+            padding: 1.5rem 3rem;
+            margin: 2rem 0;
+            background: var(--accent);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 300;
+            border-radius: 8px;
+        }
+
+        .event-image {
+            max-width: 700px;
+            width: 100%;
+            height: auto;
+            margin: 2rem auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .info-item {
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            transition: border-color 0.2s ease;
+        }
+
+        .info-item:hover {
+            border-color: var(--accent);
+        }
+
+        .info-item .label {
+            font-size: 0.9rem;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item .value {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: var(--accent);
+        }
+
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .feature {
+            padding: 1.5rem;
+            background: var(--light-accent);
+            border-radius: 8px;
+        }
+
+        .feature h4 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .quote {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin: 3rem 0;
+            background: var(--light-accent);
+            border-radius: 8px;
+            font-size: 1.3rem;
+            font-style: italic;
+            color: #4a5568;
+            font-weight: 300;
+        }
+
+        .content-box {
+            padding: 2rem;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 2rem;
+        }
+
+        .content-box p {
+            margin-bottom: 1rem;
+            color: #4a5568;
+        }
+
+        .content-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #718096;
+            font-size: 0.95rem;
+        }
+
+        footer .brand {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .hero .event-title {
+                font-size: 1.3rem;
+            }
+
+            .date-box {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav a {
+                text-align: center;
+            }
+
+            .container {
+                padding: 2rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-wrapper">
+        <header>
+            <h1>Spirit Echoes</h1>
+            <p class="subtitle">Fine Art Festival</p>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#home" onclick="showSection('home')">Home</a></li>
+                <li><a href="#artists" onclick="showSection('artists')">Artists</a></li>
+                <li><a href="#floorplan" onclick="showSection('floorplan')">Floor Plan</a></li>
+                <li><a href="#location" onclick="showSection('location')">Location</a></li>
+                <li><a href="#news" onclick="showSection('news')">News</a></li>
+                <li><a href="#history" onclick="showSection('history')">History</a></li>
+                <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="container" id="mainContent">
+        <div class="hero">
+            <h2 class="event-title">Fine Art & Fine Craft Holiday Gift Show</h2>
+            <p class="location">The Crockett Center</p>
+            <p class="location">10601 N. Lamar Blvd, Austin, TX 78753</p>
+            <div class="date-box">December 2 & 3, 2006</div>
+            <img src="migration/spiritechoes/images/postcard_06_02.gif" alt="Festival Poster" class="event-image" onerror="this.style.display='none'">
+        </div>
+
+        <section class="section">
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Saturday</div>
+                    <div class="value">10AM - 6PM</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Sunday</div>
+                    <div class="value">11AM - 5PM</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Admission</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="label">Adults & Teens</div>
+                    <div class="value">$5</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Children</div>
+                    <div class="value">$2</div>
+                </div>
+                <div class="info-item">
+                    <div class="label">Under 7</div>
+                    <div class="value">Free</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>What to Expect</h2>
+            <div class="feature-list">
+                <div class="feature">
+                    <h4>100+ Artists</h4>
+                    <p>Discover original artwork from talented local and regional artists</p>
+                </div>
+                <div class="feature">
+                    <h4>Live Music</h4>
+                    <p>Enjoy performances throughout both days of the festival</p>
+                </div>
+                <div class="feature">
+                    <h4>Artist Demonstrations</h4>
+                    <p>Watch skilled artists create their work in real-time</p>
+                </div>
+                <div class="feature">
+                    <h4>Unique Gifts</h4>
+                    <p>Find one-of-a-kind presents for everyone on your list</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote">
+            Support creativity and give a gift that keeps on giving for a lifetime
+        </div>
+    </div>
+
+    <footer>
+        <div class="brand">Spirit Echoes</div>
+        <p>P.O. Box 26701, Austin, TX 78755</p>
+        <p>Phone: (512) 331-8310</p>
+        <p><a href="mailto:melodie@spiritechoes.com">melodie@spiritechoes.com</a></p>
+    </footer>
+
+    <script>
+        function showSection(section) {
+            const content = document.getElementById('mainContent');
+
+            const sections = {
+                home: `
+                    <div class="hero">
+                        <h2 class="event-title">Fine Art & Fine Craft Holiday Gift Show</h2>
+                        <p class="location">The Crockett Center</p>
+                        <p class="location">10601 N. Lamar Blvd, Austin, TX 78753</p>
+                        <div class="date-box">December 2 & 3, 2006</div>
+                        <img src="migration/spiritechoes/images/postcard_06_02.gif" alt="Festival Poster" class="event-image" onerror="this.style.display='none'">
+                    </div>
+
+                    <section class="section">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="label">Saturday</div>
+                                <div class="value">10AM - 6PM</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="label">Sunday</div>
+                                <div class="value">11AM - 5PM</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>Admission</h2>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="label">Adults & Teens</div>
+                                <div class="value">$5</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="label">Children</div>
+                                <div class="value">$2</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="label">Under 7</div>
+                                <div class="value">Free</div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="section">
+                        <h2>What to Expect</h2>
+                        <div class="feature-list">
+                            <div class="feature">
+                                <h4>100+ Artists</h4>
+                                <p>Discover original artwork from talented local and regional artists</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Live Music</h4>
+                                <p>Enjoy performances throughout both days of the festival</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Artist Demonstrations</h4>
+                                <p>Watch skilled artists create their work in real-time</p>
+                            </div>
+                            <div class="feature">
+                                <h4>Unique Gifts</h4>
+                                <p>Find one-of-a-kind presents for everyone on your list</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="quote">
+                        Support creativity and give a gift that keeps on giving for a lifetime
+                    </div>
+                `,
+                artists: `
+                    <section class="section">
+                        <h2>Featured Artists</h2>
+                        <div class="content-box">
+                            <p>Over 100 talented artists will be showcasing their work at this year's festival.</p>
+                            <p><em>Artist list to be populated from data file</em></p>
+                        </div>
+                    </section>
+                `,
+                floorplan: `
+                    <section class="section">
+                        <h2>Festival Floor Plan</h2>
+                        <div class="content-box">
+                            <p>View the layout of vendor booths and facilities at the Crockett Center.</p>
+                        </div>
+                    </section>
+                `,
+                location: `
+                    <section class="section">
+                        <h2>Location & Directions</h2>
+                        <h3>The Crockett Center</h3>
+                        <p style="font-size: 1.1rem; margin-bottom: 2rem; text-align: center;">10601 N. Lamar Blvd, Austin, TX 78753</p>
+
+                        <div class="content-box">
+                            <h4 style="margin-bottom: 0.5rem;">From IH-35 North:</h4>
+                            <p>Take Braker Ln., go west (turn left) crossing over IH-35 and proceed to N. Lamar Blvd. (approx. 1m.) turn left on N. Lamar. Go 3 blocks to 10601 N. Lamar Blvd. Crockett Center is located on left hand side of street across from Chuy's Mexican Restaurant.</p>
+                        </div>
+
+                        <div class="content-box">
+                            <h4 style="margin-bottom: 0.5rem;">From IH-35 South:</h4>
+                            <p>Take Braker Ln., go west (turn right) and proceed to N. Lamar Blvd. (approx. 1ml.) turn left on N. Lamar. Go 3 blocks to 10601 N. Lamar Blvd. Crockett Center is located on left hand side of street across from Chuy's Mexican Restaurant.</p>
+                        </div>
+                    </section>
+                `,
+                news: `
+                    <section class="section">
+                        <h2>In The News</h2>
+                        <div class="content-box">
+                            <h3>KXAN-TV 36 - Out on the Porch</h3>
+                            <p><em>July 2004 Interview</em></p>
+                            <p>Jim Swift of KXAN TV has been a long time supporter of the Spirit Echoes Gallery. Through the years, Jim interviewed owner and director, Melodie Spears on four occasions; the most recent being in conjunction with the 2004 First Annual Spirit Echoes Art Festival and Melodie's new acrylic paintings.</p>
+                        </div>
+                    </section>
+                `,
+                history: `
+                    <section class="section">
+                        <h2>Our Story</h2>
+                        <div class="content-box">
+                            <p>Thank you for your interest in Spirit Echoes. Although some may think the name is Native American, it simply refers to the ability to tap into the Creator within through artistic expression and echo that Spirit to others.</p>
+
+                            <p>Spirit Echoes started out as a newsletter in Austin, Texas and was founded in October 1991 by Melodie Spears. The newsletter, established to promote emerging artists, quickly evolved into an art gallery in the luxurious lobby of the downtown Omni Hotel. The purpose of the gallery was to enable emerging artists to display and sell their work to the public, to market the artwork through newsletters and exhibitions, and to encourage the creative spirit in everyone.</p>
+
+                            <p>A second location on Far West Blvd was opened in October 1999 and closed in December 2003 to enable Melodie to pursue her own creativity and to establish another venue in which to support the arts in Austin.</p>
+
+                            <p>Through the years, Ms. Spears acquired a large following of artists and collectors alike—some 8,000 kindred spirits joined by their love for art and creativity. The Spirit Echoes Annual Fine Art Festival invites these and thousands more to experience creative expression at its best.</p>
+                        </div>
+                    </section>
+                `,
+                contact: `
+                    <section class="section">
+                        <h2>Get In Touch</h2>
+                        <div class="content-box">
+                            <p style="text-align: center; margin-bottom: 2rem;">Please feel free to write, call, or email. We encourage your feedback!</p>
+                            <div style="text-align: center;">
+                                <p><strong>Spirit Echoes</strong></p>
+                                <p>P.O. Box 26701<br>Austin, TX 78755</p>
+                                <p style="margin-top: 1rem;"><strong>Phone:</strong> (512) 331-8310</p>
+                                <p><strong>Email:</strong> <a href="mailto:melodie@spiritechoes.com">melodie@spiritechoes.com</a></p>
+                            </div>
+                        </div>
+                    </section>
+                `
+            };
+
+            content.innerHTML = sections[section] || sections.home;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

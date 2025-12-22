@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Spirit Echoes Studio - Custom acrylic
+    paintings and soft pastels by Melodie Spears Schmidt in Smithville, Texas"
+    />
+    <title>Spirit Echoes Studio | Melodie Spears Schmidt</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <header>
+        <h1>Spirit Echoes Studio</h1>
+        <p class="subtitle">Melodie Spears Schmidt</p>
+        <nav>
+          <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <ul id="navMenu" class="nav-menu">
+            <li>
+              <a href="#home" onclick="showSection('home', event)">Home</a>
+            </li>
+            <li>
+              <a href="#portfolio" onclick="showSection('portfolio', event)"
+                >Portfolio</a
+              >
+            </li>
+            <li>
+              <a href="#about" onclick="showSection('about', event)">About</a>
+            </li>
+            <li>
+              <a href="#contact" onclick="showSection('contact', event)"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </header>
+    </div>
+
+    <div class="container" id="mainContent">
+      <!-- Content will be loaded by JavaScript -->
+    </div>
+
+    <footer>
+      <div class="brand">Spirit Echoes Studio</div>
+      <p>Smithville, Texas</p>
+      <p>
+        <a href="mailto:melodie@spiritechoes.com">melodie@spiritechoes.com</a>
+      </p>
+      <p style="margin-top: var(--spacing-sm); font-size: 0.85rem">
+        © <span id="currentYear"></span> Melodie Spears Schmidt
+      </p>
+    </footer>
+
+    <!-- Dynamic copyright year -->
+    <script>
+      document.getElementById('currentYear').textContent =
+        new Date().getFullYear();
+    </script>
+    <!-- JavaScript for Navigation -->
+    <script src="js/navigation.js"></script>
+  </body>
+</html>
