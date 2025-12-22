@@ -67,7 +67,8 @@ nav a:hover {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--spacing-2xl) var(--spacing-lg);
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-2xl);
+  /* Top: 1rem, Sides: 2rem, Bottom: 4rem */
 }
 
 /* Footer */

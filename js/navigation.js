@@ -21,7 +21,7 @@ const sections = {
       </div>
 
       <div class="featured-image">
-        <img src="images/featured/placeholder.jpg" alt="Featured artwork by Melodie Spears Schmidt" />
+        <img src="images/featured/Art-Schmidt-Glorious-Gift.jpeg" alt="Featured artwork by Melodie Spears Schmidt" />
         <p class="image-caption">Recent work - Available for viewing at Lost Pines Artisan Alliance Gallery</p>
       </div>
 
@@ -47,9 +47,28 @@ const sections = {
   portfolio: `
     <section class="section" id="portfolio">
       <h2>Portfolio</h2>
-      <div class="coming-soon">
-        <p>Gallery coming soon.</p>
-        <p>Check back for updates on new work and available pieces.</p>
+      <!-- uncomment when adding images (and modify text if needed)
+      <p style="text-align: center; margin-bottom: var(--spacing-lg); color: var(--color-text-light);">
+        A selection of recent work in acrylics and soft pastels.
+      </p> -->
+
+      <div class="gallery-grid">
+        <!-- Placeholder - Remove when adding real images -->
+        <div class="coming-soon">
+          <p>Gallery images coming soon.</p>
+          <p>Check back for updates on new work and available pieces.</p>
+        </div>
+
+        <!-- EXAMPLE: Uncomment and duplicate this when you have images -->
+        <!--
+        <div class="gallery-item">
+          <img src="images/portfolio/artwork1.jpg" alt="Artwork title" />
+          <div class="gallery-item-info">
+            <div class="gallery-item-title">Artwork Title</div>
+            <div class="gallery-item-medium">Acrylic on Canvas, 24" x 36"</div>
+          </div>
+        </div>
+        -->
       </div>
     </section>
     `,
